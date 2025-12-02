@@ -70,27 +70,6 @@ _...and more projects on the way!_ 🛠️
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-
-<!-- Added styling to hide borders and force formatting -->
-<p>
-  <img src="https://github-readme-stats.vercel.app/api?username=psdkjoon&show_icons=true&theme=catppuccin_mocha&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&icon_color=cba6f7" alt="GitHub Stats" />
-</p>
-
-<p>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=psdkjoon&layout=compact&theme=catppuccin_mocha&hide_border=true&bg_color=1e1e2e&title_color=cba6f7" alt="Top Languages" />
-</p>
-
-<p>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=psdkjoon&theme=catppuccin-mocha&hide_border=true&background=1e1e2e&ring=cba6f7&fire=cba6f7&currStreakLabel=cba6f7" alt="GitHub Streak" />
-</p>
-
-</div>
-
----
-
 ## 🏷️ What I Do
 
 ```text
