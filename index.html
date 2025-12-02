@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hossein's Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+      /* ========================================
+         CSS VARIABLES - Catppuccin Mocha Theme
+         ======================================== */
+      :root {
+        --ctp-rosewater: #f5e0dc;
+        --ctp-flamingo: #f2cdcd;
+        --ctp-pink: #f5c2e7;
+        --ctp-mauve: #cba6f7;
+        --ctp-red: #f38ba8;
+        --ctp-maroon: #eba0ac;
+        --ctp-peach: #fab387;
+        --ctp-yellow: #f9e2af;
+        --ctp-green: #a6e3a1;
+        --ctp-teal: #94e2d5;
+        --ctp-sky: #89dceb;
+        --ctp-sapphire: #74c7ec;
+        --ctp-blue: #89b4fa;
+        --ctp-lavender: #b4befe;
+        --ctp-text: #cdd6f4;
+        --ctp-subtext1: #bac2de;
+        --ctp-subtext0: #a6adc8;
+        --ctp-overlay2: #9399b2;
+        --ctp-surface0: #313244;
+        --ctp-surface1: #45475a;
+        --ctp-surface2: #585b70;
+        --ctp-base: #1e1e2e;
+        --ctp-mantle: #181825;
+        --ctp-crust: #11111b;
+        --accent: var(--ctp-mauve);
+        --primary: var(--ctp-pink);
+      }
+
+      /* ========================================
+         BASE & RESET STYLES
+         ======================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 0px;
+      }
+
+      body {
+        background-color: var(--ctp-base);
+        color: var(--ctp-text);
+        font-family: "Space Grotesk", sans-serif;
+        overflow-x: hidden;
+        line-height: 1.8;
+        width: 100%;
+      }
+
+      /* ========================================
+         CANVAS BACKGROUND
+         ======================================== */
+      #canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.4;
+      }
+
+      /* ========================================
+         TYPOGRAPHY & TEXT UTILITIES
+         ======================================== */
+      .section-title {
+        margin: 10px 0px;
+      }
+
+      .card-title {
+        margin: 10px 0px 20px 0px;
+      }
+
+      .section-paragraph {
+        margin: 10px 0px;
+      }
+
+      .section-card {
+        margin: 20px 0px 0px 0px;
+      }
+
+      .title-font {
+        font-family: "EB Garamond", serif;
+      }
+
+      .special-text {
+        font-family: "EB Garamond";
+      }
+
+      .accent-text {
+        color: var(--accent);
+      }
+
+      .accent-bg {
+        background-color: var(--accent);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .unselectable-text {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      /* ========================================
+         GLASS PANEL EFFECTS
+         ======================================== */
+      .glass-panel {
+        background: rgba(30, 30, 46, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .glass-panel-light {
+        background: rgba(49, 50, 68, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* ========================================
+         BADGES & TAGS
+         ======================================== */
+      .badge {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: bold;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+      }
+
+      .small-tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+      }
+
+      /* ========================================
+         NAVIGATION
+         ======================================== */
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: var(--accent);
+      }
+
+      /* ========================================
+         KEYFRAME ANIMATIONS
+         ======================================== */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes smoothBounce {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-6px) rotate(1deg);
+        }
+        50% {
+          transform: translateY(0) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-6px) rotate(-1deg);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      @keyframes scrollDot {
+        0% {
+          top: 8px;
+          opacity: 1;
+        }
+        50% {
+          top: 20px;
+          opacity: 0.5;
+        }
+        100% {
+          top: 8px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1);
+        }
+        75% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ========================================
+         ANIMATION CLASSES
+         ======================================== */
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .fade-in-left {
+        animation: fadeInLeft 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .fade-in-right {
+        animation: fadeInRight 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .smooth-bounce {
+        animation: smoothBounce 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .pulse-animation {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .heartbeat {
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+
+      /* ========================================
+         SCROLL REVEAL
+         ======================================== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ========================================
+         CARDS
+         ======================================== */
+      .info-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-content {
+        padding: 32px;
+      }
+
+      .special-card-content {
+        padding: 32px;
+        margin: 32px;
+      }
+
+      .project-card-body {
+        padding: 28px;
+      }
+
+      /* ========================================
+         SKILL BARS
+         ======================================== */
+      .skill-bar {
+        height: 8px;
+        background: var(--ctp-surface1);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--primary));
+        border-radius: 4px;
+        width: 0;
+        transition: width 1.5s ease-out;
+      }
+
+      .skill-item {
+        margin-bottom: 24px;
+      }
+
+      .skill-item:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ========================================
+         TIMELINE
+         ======================================== */
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -31px;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--accent);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: -26px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), transparent);
+      }
+
+      /* ========================================
+         BUTTONS
+         ======================================== */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--ctp-base);
+        margin: 16px 0;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(203, 166, 247, 0.3);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        margin: 16px 0;
+      }
+
+      .btn-outline:hover {
+        background: var(--accent);
+        color: var(--ctp-base);
+      }
+
+      /* ========================================
+         STATS
+         ======================================== */
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .infinity {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .stat-card {
+        padding: 32px 28px;
+      }
+
+      .stat-card-infinity {
+        padding: 16px 28px 32px 28px;
+      }
+
+      /* ========================================
+         DECORATIVE ELEMENTS
+         ======================================== */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      /* ========================================
+         SCROLL INDICATOR
+         ======================================== */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: float 2s ease-in-out infinite;
+      }
+
+      .scroll-mouse {
+        width: 26px;
+        height: 42px;
+        border: 2px solid var(--accent);
+        border-radius: 13px;
+        position: relative;
+      }
+
+      .scroll-mouse::before {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 2px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 8px;
+        animation: scrollDot 1.5s ease-in-out infinite;
+      }
+
+      /* ========================================
+         LAYOUT
+         ======================================== */
+      section {
+        padding: 120px 0;
+        position: relative;
+        overflow: visible;
+        width: 100%;
+      }
+
+      .main-wrapper {
+        overflow-x: clip;
+        width: 100%;
+      }
+
+      .container {
+        max-width: 72rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: 100%;
+      }
+
+      /* ========================================
+         TECH ICONS
+         ======================================== */
+      .tech-icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        transition: all 0.3s ease;
+      }
+
+      .tech-icon:hover {
+        transform: scale(1.2) rotate(5deg);
+        color: var(--accent);
+      }
+
+      /* ========================================
+         CUSTOM SCROLLBAR
+         ======================================== */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--ctp-mantle);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--ctp-surface1);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+      }
+
+      /* ========================================
+         TERMINAL
+         ======================================== */
+      .terminal {
+        font-family: "Courier New", monospace;
+        background: var(--ctp-crust);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .terminal-header {
+        background: var(--ctp-surface0);
+        padding: 12px 16px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .terminal-body {
+        padding: 24px;
+        font-size: 14px;
+      }
+
+      .terminal-body > div {
+        margin-bottom: 16px;
+      }
+
+      .terminal-body > div:last-child {
+        margin-bottom: 0;
+      }
+
+      .terminal-prompt {
+        color: var(--ctp-green);
+      }
+
+      .terminal-command {
+        color: var(--ctp-text);
+        margin-left: 8px;
+      }
+
+      .terminal-output {
+        color: var(--ctp-subtext0);
+        margin-left: 24px;
+        margin-top: 6px;
+      }
+
+      /* ========================================
+         FORM INPUTS
+         ======================================== */
+      .form-input {
+        width: 100%;
+        padding: 16px 20px;
+        margin: 15px 0px;
+        border-radius: 12px;
+        background: var(--ctp-surface1);
+        border: 2px solid transparent;
+        outline: none;
+        transition: border-color 0.3s;
+        font-size: 1rem;
+        color: var(--ctp-text);
+      }
+
+      .form-input:focus {
+        border-color: var(--accent);
+      }
+
+      .form-input::placeholder {
+        color: var(--ctp-overlay2);
+      }
+
+      .status-message {
+        text-align: center;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: 500;
+        min-height: 24px;
+      }
+
+      /* ========================================
+         CONTACT SECTION
+         ======================================== */
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 28px;
+      }
+
+      .contact-item:last-child {
+        margin-bottom: 20px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: stretch;
+      }
+
+      @media (min-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .contact-card-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        padding: 32px;
+      }
+
+      /* ========================================
+         EXPERIENCE SECTION
+         ======================================== */
+      .exp-item {
+        padding: 24px;
+        text-align: center;
+      }
+
+      /* ========================================
+         SOCIAL ICONS
+         ======================================== */
+      .social-icon-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .social-icon-btn svg {
+        width: 28px;
+        height: 28px;
+        fill: currentColor;
+      }
+
+      /* ========================================
+         FOOTER
+         ======================================== */
+      footer {
+        padding-bottom: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ==================== CANVAS BACKGROUND ==================== -->
+    <canvas id="canvas-bg"></canvas>
+
+    <div class="main-wrapper">
+      <!-- ==================== NAVIGATION ==================== -->
+      <nav class="fixed top-0 left-0 right-0 z-50 glass-panel">
+        <div class="container flex justify-between items-center py-4">
+          <a href="#" class="text-2xl font-bold title-font">
+            <span class="accent-text">P</span>sdk<span class="accent-text">.</span>
+          </a>
+          <div class="hidden md:flex gap-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+          <button
+            id="menuBtn"
+            class="md:hidden p-2 rounded-lg glass-panel-light"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- ==================== MOBILE MENU ==================== -->
+      <div
+        id="mobileMenu"
+        class="fixed inset-0 z-40 glass-panel hidden flex-col items-center justify-center gap-8 text-2xl"
+        role="navigation"
+        aria-label="Mobile navigation"
+      >
+        <a href="#home" class="nav-link mobile-link">Home</a>
+        <a href="#about" class="nav-link mobile-link">About</a>
+        <a href="#skills" class="nav-link mobile-link">Skills</a>
+        <a href="#projects" class="nav-link mobile-link">Projects</a>
+        <a href="#contact" class="nav-link mobile-link">Contact</a>
+      </div>
+
+      <!-- ==================== HERO SECTION ==================== -->
+      <section
+        id="home"
+        class="min-h-screen flex items-center justify-center relative"
+      >
+        <div
+          class="glow-orb w-96 h-96 accent-bg"
+          style="top: -80px; left: -80px"
+        ></div>
+        <div
+          class="glow-orb w-64 h-64 bg-[var(--ctp-pink)]"
+          style="bottom: 80px; right: -80px"
+        ></div>
+
+        <div class="container relative z-10">
+          <div class="flex flex-col items-center text-center">
+            <div class="fade-in-up mb-10">
+              <span class="badge glass-panel-light accent-text">
+                👋🏽 Welcome to my corner of the internet
+              </span>
+            </div>
+
+            <h1
+              class="text-5xl md:text-7xl font-bold mb-10 fade-in-up delay-100 title-font section-title"
+            >
+              Hi, I'm <span class="gradient-text">Hossein</span>
+            </h1>
+
+            <p
+              class="text-xl md:text-2xl text-[var(--ctp-subtext1)] mb-14 fade-in-up delay-200 max-w-2xl leading-relaxed"
+            >
+              A <span class="accent-text special-text">Code Enjoyer</span> who
+              does what makes him happy. CLI tools, Telegram bots, and random
+              cool stuff.
+            </p>
+
+            <div
+              class="flex flex-wrap gap-6 justify-center fade-in-up delay-300"
+            >
+              <a href="#projects" class="btn btn-primary">
+                View My Projects
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href="#contact" class="btn btn-outline"> Say Hello </a>
+            </div>
+
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 w-full fade-in-up delay-400"
+            >
+              <div class="glass-panel-light rounded-xl stat-card">
+                <div class="stat-number accent-text" data-count="10">0</div>
+                <div class="text-sm text-[var(--ctp-subtext0)] mt-3">
+                  Projects
+                </div>
+              </div>
+              <div class="glass-panel-light rounded-xl stat-card">
+                <div class="stat-number accent-text" data-count="5">0</div>
+                <div class="text-sm text-[var(--ctp-subtext0)] mt-3">
+                  Years Coding
+                </div>
+              </div>
+              <div class="glass-panel-light rounded-xl stat-card">
+                <div class="stat-number accent-text" data-count="6">0</div>
+                <div class="text-sm text-[var(--ctp-subtext0)] mt-3">
+                  Languages
+                </div>
+              </div>
+              <div class="glass-panel-light rounded-xl stat-card-infinity">
+                <div class="stat-number accent-text heartbeat infinity">∞</div>
+                <div class="text-sm text-[var(--ctp-subtext0)] mt-3">
+                  Passion
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <div class="scroll-mouse"></div>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT SECTION ==================== -->
+      <section id="about" class="relative">
+        <div class="container">
+          <div class="flex justify-center mb-8">
+            <span class="badge glass-panel-light accent-text"> About Me </span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+              <div class="relative">
+                <div class="terminal float-animation">
+                  <div class="terminal-header">
+                    <div class="terminal-dot bg-[var(--ctp-red)]"></div>
+                    <div class="terminal-dot bg-[var(--ctp-yellow)]"></div>
+                    <div class="terminal-dot bg-[var(--ctp-green)]"></div>
+                  </div>
+                  <div class="terminal-body">
+                    <div>
+                      <span class="terminal-prompt">$</span>
+                      <span class="terminal-command">whoami</span>
+                      <div class="terminal-output">Hossein - Code Enjoyer</div>
+                    </div>
+                    <div>
+                      <span class="terminal-prompt">$</span>
+                      <span class="terminal-command">cat interests.txt</span>
+                      <div class="terminal-output">
+                        CLI Tools, Telegram Bots, APIs
+                      </div>
+                    </div>
+                    <div>
+                      <span class="terminal-prompt">$</span>
+                      <span class="terminal-command">echo $MOTIVATION</span>
+                      <div class="terminal-output">
+                        Do what makes you happy!
+                      </div>
+                    </div>
+                    <div>
+                      <span class="terminal-prompt">$</span>
+                      <span class="terminal-command accent-text">_</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="unselectable-text absolute -bottom-6 -right-6 w-24 h-24 rounded-xl accent-bg flex items-center justify-center text-4xl smooth-bounce"
+                >
+                  🤖
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <h2
+                class="text-4xl md:text-5xl font-bold mb-10 title-font text-center md:text-left section-title"
+              >
+                Code <span class="gradient-text">Enjoyer</span>
+              </h2>
+              <p
+                class="text-[var(--ctp-subtext1)] mb-8 leading-relaxed text-lg text-center md:text-left"
+              >
+                I'm not your typical developer chasing clients or building
+                startups. I'm just someone who genuinely loves coding and does
+                what makes me happy. Whether it's a CLI tool, a Telegram bot, or
+                some random experiment – if it sounds fun, I'm building it.
+              </p>
+              <p
+                class="text-[var(--ctp-subtext1)] mb-12 leading-relaxed text-lg text-center md:text-left section-paragraph"
+              >
+                I have a background in
+                <span class="accent-text special-text">Data Science</span> and
+                love working with APIs to create useful tools. My journey with
+                code started 5 years ago, and it's been a fun ride ever since!
+              </p>
+
+              <div class="flex flex-wrap gap-5 justify-center md:justify-start">
+                <span class="tag glass-panel-light"
+                  ><span class="unselectable-text">🤖 </span>Bot Maker</span
+                >
+                <span class="tag glass-panel-light"
+                  ><span class="unselectable-text">💻 </span>CLI Lover</span
+                >
+                <span class="tag glass-panel-light"
+                  ><span class="unselectable-text">🤝 </span>Team Player</span
+                >
+                <span class="tag glass-panel-light"
+                  ><span class="unselectable-text">📊 </span>Data Science</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SKILLS SECTION ==================== -->
+      <section id="skills" class="relative">
+        <div
+          class="glow-orb w-64 h-64 bg-[var(--ctp-teal)]"
+          style="top: 50%; right: -128px; transform: translateY(-50%)"
+        ></div>
+
+        <div class="container">
+          <div class="text-center mb-28 reveal">
+            <span class="badge glass-panel-light accent-text mb-8">
+              What I Know
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold title-font card-title">
+              Skills & <span class="gradient-text">Languages</span>
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 mb-12">
+            <div class="glass-panel rounded-2xl card-content reveal info-card">
+              <div class="flex items-center gap-5 mb-10">
+                <div
+                  class="unselectable-text w-16 h-16 rounded-xl accent-bg flex items-center justify-center text-3xl"
+                >
+                  🛠️
+                </div>
+                <h3 class="text-2xl font-bold">Skills & Tools</h3>
+              </div>
+
+              <div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Telegram Bot API</span>
+                    <span class="accent-text font-semibold">95%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="95"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">REST APIs</span>
+                    <span class="accent-text font-semibold">90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="90"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Linux / CLI</span>
+                    <span class="accent-text font-semibold">92%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="92"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Git / GitHub</span>
+                    <span class="accent-text font-semibold">88%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="88"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Data Science</span>
+                    <span class="accent-text font-semibold">85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="85"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl card-content reveal info-card">
+              <div class="flex items-center gap-5 mb-10">
+                <div
+                  class="unselectable-text w-16 h-16 rounded-xl accent-bg flex items-center justify-center text-3xl"
+                >
+                  💻
+                </div>
+                <h3 class="text-2xl font-bold">Languages</h3>
+              </div>
+
+              <div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Bash</span>
+                    <span class="accent-text font-semibold">95%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="95"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Python</span>
+                    <span class="accent-text font-semibold">90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="90"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">C++</span>
+                    <span class="accent-text font-semibold">85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="85"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">Lua</span>
+                    <span class="accent-text font-semibold">80%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="80"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-4">
+                    <span class="text-lg">C#</span>
+                    <span class="accent-text font-semibold">75%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-width="75"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl card-content reveal section-card">
+            <h3 class="text-xl font-bold mb-10 text-center card-title">
+              Tech Stack
+            </h3>
+            <div class="unselectable-text flex flex-wrap justify-center gap-8">
+              <div class="tech-icon glass-panel-light rounded-xl" title="Bash">
+                🐚
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="Py">
+                🐍
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="C++">
+                ⚡
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="Lua">
+                🌙
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="C#">
+                🎯
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="Git">
+                📦
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="API">
+                🔗
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="GNU">
+                🐧
+              </div>
+              <div class="tech-icon glass-panel-light rounded-xl" title="DS">
+                🗃️
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROJECTS SECTION ==================== -->
+      <section id="projects" class="relative">
+        <div
+          class="glow-orb w-80 h-80 bg-[var(--ctp-peach)]"
+          style="top: -160px; left: -160px"
+        ></div>
+
+        <div class="container">
+          <div class="text-center mb-28 reveal">
+            <span class="badge glass-panel-light accent-text mb-8">
+              My Work
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold title-font card-title">
+              Featured <span class="gradient-text">Projects</span>
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div
+              class="glass-panel rounded-2xl overflow-hidden reveal info-card"
+            >
+              <div
+                class="unselectable-text aspect-video bg-gradient-to-br from-[var(--ctp-red)] to-[var(--ctp-maroon)] flex items-center justify-center text-6xl"
+              >
+                🎵
+              </div>
+              <div class="project-card-body">
+                <h3 class="text-xl font-bold mb-4">ytmd</h3>
+                <p
+                  class="text-[var(--ctp-subtext0)] mb-6 leading-relaxed section-paragraph"
+                >
+                  CLI YouTube music downloader. Download your favorite music
+                  directly from the terminal with ease.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <span class="small-tag glass-panel-light accent-text">Bash</span>
+                  <span class="small-tag glass-panel-light accent-text">API</span>
+                  <span class="small-tag glass-panel-light accent-text">CLI</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-panel rounded-2xl overflow-hidden reveal info-card"
+            >
+              <div
+                class="unselectable-text aspect-video bg-gradient-to-br from-[var(--ctp-green)] to-[var(--ctp-teal)] flex items-center justify-center text-6xl"
+              >
+                🎧
+              </div>
+              <div class="project-card-body">
+                <h3 class="text-xl font-bold mb-4">mdit</h3>
+                <p
+                  class="text-[var(--ctp-subtext0)] mb-6 leading-relaxed section-paragraph"
+                >
+                  CLI Music Editor built in pure Bash. Edit and manipulate audio
+                  files without leaving your terminal.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <span class="small-tag glass-panel-light accent-text">Pure Bash</span>
+                  <span class="small-tag glass-panel-light accent-text">CLI</span>
+                  <span class="small-tag glass-panel-light accent-text">Audio</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-panel rounded-2xl overflow-hidden reveal info-card"
+            >
+              <div
+                class="unselectable-text aspect-video bg-gradient-to-br from-[var(--ctp-mauve)] to-[var(--ctp-pink)] flex items-center justify-center text-6xl"
+              >
+                💬
+              </div>
+              <div class="project-card-body">
+                <h3 class="text-xl font-bold mb-4">Criticism Website</h3>
+                <p
+                  class="text-[var(--ctp-subtext0)] mb-6 leading-relaxed section-paragraph"
+                >
+                  A website for collecting feedback and critiques, which sends
+                  them directly to a Telegram bot.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <span class="small-tag glass-panel-light accent-text">JavaScript</span>
+                  <span class="small-tag glass-panel-light accent-text">API</span>
+                  <span class="small-tag glass-panel-light accent-text">Telegram</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-20 reveal">
+            <p
+              class="text-[var(--ctp-subtext0)] mb-12 text-lg section-paragraph"
+            >
+              And more projects on the way... 🚀
+            </p>
+            <a
+              href="https://github.com/psdkjoon"
+              target="_blank"
+              class="btn btn-outline"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              View GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== EXPERIENCE SECTION ==================== -->
+      <section id="experience" class="relative">
+        <div class="container">
+          <div class="text-center mb-20 reveal">
+            <span class="badge glass-panel-light accent-text mb-8">
+              My Journey
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold title-font card-title">
+              <span class="gradient-text">Experience</span>
+            </h2>
+          </div>
+
+          <div class="reveal flex justify-center">
+            <div class="glass-panel rounded-2xl card-content w-full max-w-4xl">
+              <div class="flex flex-col items-center text-center">
+                <div
+                  class="text-6xl mb-10 heartbeat section-title unselectable-text"
+                >
+                  ❤️
+                </div>
+                <h3 class="text-2xl font-bold mb-8">
+                  No Professional Experience
+                </h3>
+                <p
+                  class="text-[var(--ctp-subtext1)] text-lg max-w-lg leading-relaxed mb-12 section-paragraph"
+                >
+                  I have no professional experience, but I have an endless
+                  <span class="accent-text special-text">love for coding</span>.
+                  I code for fun, to learn, and to create things that make me
+                  happy!
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                  <div class="glass-panel-light rounded-xl exp-item">
+                    <div class="unselectable-text text-3xl mb-4">📚</div>
+                    <div class="text-sm text-[var(--ctp-subtext0)]">
+                      Self-taught
+                    </div>
+                  </div>
+                  <div class="glass-panel-light rounded-xl exp-item">
+                    <div class="unselectable-text text-3xl mb-4">🔥</div>
+                    <div class="text-sm text-[var(--ctp-subtext0)]">
+                      5 Years Coding
+                    </div>
+                  </div>
+                  <div class="glass-panel-light rounded-xl exp-item">
+                    <div class="unselectable-text text-3xl mb-4">🎓</div>
+                    <div class="text-sm text-[var(--ctp-subtext0)]">
+                      Data Science
+                    </div>
+                  </div>
+                  <div class="glass-panel-light rounded-xl exp-item">
+                    <div class="unselectable-text text-3xl mb-4">💡</div>
+                    <div class="text-sm text-[var(--ctp-subtext0)]">
+                      Always Learning
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT SECTION ==================== -->
+      <section id="contact" class="relative">
+        <div
+          class="glow-orb w-72 h-72 accent-bg"
+          style="bottom: 80px; right: -96px"
+        ></div>
+
+        <div class="container">
+          <div class="text-center mb-20 reveal">
+            <div class="flex justify-center mb-8">
+              <span class="badge glass-panel-light accent-text">
+                Get In Touch
+              </span>
+            </div>
+            <h2
+              class="text-4xl md:text-5xl font-bold title-font mb-8 section-title"
+            >
+              Let's <span class="gradient-text">Connect</span>
+            </h2>
+            <p class="text-[var(--ctp-subtext1)] text-center section-paragraph">
+              Have a cool idea? Want to collaborate? Or just want to say hi?
+              <br />
+              Feel free to reach out!
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="reveal contact-card">
+              <div class="glass-panel rounded-2xl contact-card-inner">
+                <div>
+                  <h3 class="text-2xl font-bold mb-8">Contact Info</h3>
+                  <div class="mb-8">
+                    <div class="contact-item">
+                      <div
+                        class="unselectable-text w-16 h-16 rounded-xl accent-bg flex items-center justify-center text-2xl flex-shrink-0"
+                      >
+                        📧
+                      </div>
+                      <div>
+                        <p class="text-sm text-[var(--ctp-subtext0)] mb-2">
+                          Email
+                        </p>
+                        <a
+                          href="mailto:psdk@psdkjoon.ir"
+                          class="font-medium text-lg hover:text-[var(--accent)] transition-colors"
+                          >psdk@psdkjoon.ir</a
+                        >
+                      </div>
+                    </div>
+                    <div class="contact-item">
+                      <div
+                        class="unselectable-text w-16 h-16 rounded-xl accent-bg flex items-center justify-center text-2xl flex-shrink-0"
+                      >
+                        📍
+                      </div>
+                      <div>
+                        <p class="text-sm text-[var(--ctp-subtext0)] mb-2">
+                          Location
+                        </p>
+                        <p class="font-medium text-lg">Karaj, Iran</p>
+                      </div>
+                    </div>
+
+                    <div class="contact-item">
+                      <div
+                        class="unselectable-text w-16 h-16 rounded-xl accent-bg flex items-center justify-center text-2xl flex-shrink-0"
+                      >
+                        💼
+                      </div>
+                      <div>
+                        <p class="text-sm text-[var(--ctp-subtext0)] mb-2">
+                          Status
+                        </p>
+                        <p class="font-medium text-lg text-[var(--ctp-green)]">
+                          Coding for fun 🎉
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-8 border-t border-[var(--ctp-surface1)]">
+                    <p
+                      class="text-sm text-[var(--ctp-subtext0)] mb-6 section-title"
+                    >
+                      Find me on
+                    </p>
+                    <div class="flex gap-5">
+                      <a
+                        href="https://t.me/psdkiajhn"
+                        target="_blank"
+                        class="social-icon-btn glass-panel-light"
+                        title="Telegram"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="https://github.com/psdkjoon"
+                        target="_blank"
+                        class="social-icon-btn glass-panel-light"
+                        title="GitHub"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal contact-card">
+              <form
+                class="glass-panel rounded-2xl contact-card-inner"
+                id="contactForm"
+              >
+                <div class="space-y-6">
+                  <div>
+                    <label
+                      class="block text-sm font-medium mb-4 accent-text special-text"
+                      >Name</label
+                    >
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-input"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium mb-4 accent-text special-text"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-input"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium mb-4 accent-text special-text"
+                      >Message</label
+                    >
+                    <textarea
+                      name="message"
+                      rows="5"
+                      class="form-input resize-none"
+                      placeholder="Say something nice..."
+                      required
+                    ></textarea>
+                  </div>
+                  <div id="statusMsg" class="status-message"></div>
+                  <div class="pt-4">
+                    <button
+                      type="submit"
+                      id="submitBtn"
+                      class="btn btn-primary w-full justify-center"
+                    >
+                      <span id="btnText">Send Message</span>
+                      <svg
+                        id="btnIcon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="py-14">
+        <div class="container text-center">
+          <p class="text-[var(--ctp-subtext0)] text-lg mb-4">
+            © 2025 <span class="accent-text">Hossein</span>. Made with ❤️ and
+            lots of 🥛
+          </p>
+          <p class="text-sm text-[var(--ctp-overlay2)]">
+            Code enjoyer from Iran
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+      /* ========================================
+         COLOR PAIRS CONFIGURATION
+         ======================================== */
+      const colorPairs = [
+        { accent: "#cba6f7", primary: "#f5c2e7", name: "mauve-pink" },
+        { accent: "#f5c2e7", primary: "#cba6f7", name: "pink-mauve" },
+        { accent: "#89b4fa", primary: "#b4befe", name: "blue-lavender" },
+        { accent: "#b4befe", primary: "#89b4fa", name: "lavender-blue" },
+        { accent: "#94e2d5", primary: "#89dceb", name: "teal-sky" },
+        { accent: "#89dceb", primary: "#74c7ec", name: "sky-sapphire" },
+        { accent: "#a6e3a1", primary: "#94e2d5", name: "green-teal" },
+        { accent: "#fab387", primary: "#f9e2af", name: "peach-yellow" },
+        { accent: "#f9e2af", primary: "#fab387", name: "yellow-peach" },
+        { accent: "#f38ba8", primary: "#eba0ac", name: "red-maroon" },
+        { accent: "#eba0ac", primary: "#f5c2e7", name: "maroon-pink" },
+        { accent: "#f2cdcd", primary: "#f5e0dc", name: "flamingo-rosewater" },
+        { accent: "#74c7ec", primary: "#89b4fa", name: "sapphire-blue" },
+        { accent: "#cba6f7", primary: "#b4befe", name: "mauve-lavender" },
+      ];
+
+      const selectedPair = colorPairs[Math.floor(Math.random() * colorPairs.length)];
+      document.documentElement.style.setProperty("--accent", selectedPair.accent);
+      document.documentElement.style.setProperty("--primary", selectedPair.primary);
+
+      const randomColor = { name: selectedPair.name, hex: selectedPair.accent };
+
+      /* ========================================
+         CANVAS BACKGROUND ANIMATION
+         ======================================== */
+      const canvas = document.getElementById("canvas-bg");
+      const ctx = canvas.getContext("2d");
+      let width, height;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      const patterns = [
+        {
+          init: () => ({ offset: 0 }),
+          draw: (state) => {
+            ctx.clearRect(0, 0, width, height);
+            ctx.lineWidth = 20;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = selectedPair.accent;
+            const spacing = 60;
+            state.offset += 0.2;
+            if (state.offset > spacing) state.offset = 0;
+            for (let x = -spacing; x < width + spacing + 300; x += spacing) {
+              ctx.beginPath();
+              ctx.moveTo(x + state.offset, -20);
+              ctx.lineTo(x + state.offset - 200, height + 20);
+              ctx.globalAlpha = 0.15;
+              ctx.stroke();
+            }
+          },
+        },
+        {
+          init: () => ({ t: 0 }),
+          draw: (state) => {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = selectedPair.accent;
+            ctx.globalAlpha = 0.15;
+            state.t += 0.005;
+            const radius = 15;
+            const spacing = 60;
+            const rows = Math.ceil(height / spacing) + 1;
+            for (let i = 0; i < rows; i++) {
+              const y = i * spacing;
+              const rowIsEven = i % 2 === 0;
+              const direction = rowIsEven ? 1 : -1;
+              let xOffset = (state.t * 20 * direction) % spacing;
+              for (let x = -spacing; x < width + spacing; x += spacing) {
+                let drawX = x + xOffset;
+                ctx.beginPath();
+                ctx.arc(drawX, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+              }
+            }
+          },
+        },
+        {
+          init: () => ({ rotation: 0, pulse: 0 }),
+          draw: (state) => {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = selectedPair.accent;
+            ctx.globalAlpha = 0.1;
+            state.rotation += 0.002;
+            state.pulse += 0.02;
+            const scale = 1 + Math.sin(state.pulse) * 0.2;
+            const spacing = 150;
+            for (let x = 0; x < width + spacing; x += spacing) {
+              for (let y = 0; y < height + spacing; y += spacing) {
+                const offsetX = ((y / spacing) % 2) * (spacing / 2);
+                ctx.save();
+                ctx.translate(x + offsetX, y);
+                ctx.rotate(state.rotation * (x % 2 === 0 ? 1 : -1));
+                ctx.scale(scale, scale);
+                for (let i = 0; i < 4; i++) {
+                  ctx.rotate(Math.PI / 2);
+                  ctx.beginPath();
+                  ctx.arc(20, 0, 15, 0, Math.PI * 2);
+                  ctx.fill();
+                }
+                ctx.restore();
+              }
+            }
+          },
+        },
+        {
+          init: () => {
+            const items = [];
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+              items.push({
+                x: Math.random() * (window.innerWidth || 1000),
+                y: Math.random() * (window.innerHeight || 1000),
+                size: 10 + Math.random() * 30,
+                speedY: -0.2 - Math.random() * 0.3,
+                rotation: Math.random() * Math.PI,
+                rotSpeed: (Math.random() - 0.5) * 0.02,
+              });
+            }
+            return { items };
+          },
+          draw: (state) => {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = selectedPair.accent;
+            ctx.globalAlpha = 0.12;
+            state.items.forEach((item) => {
+              item.y += item.speedY;
+              item.rotation += item.rotSpeed;
+              if (item.y < -50) {
+                item.y = height + 50;
+                item.x = Math.random() * width;
+              }
+              ctx.save();
+              ctx.translate(item.x, item.y);
+              ctx.rotate(item.rotation);
+              ctx.beginPath();
+              ctx.moveTo(0, -item.size);
+              ctx.lineTo(item.size, item.size);
+              ctx.lineTo(-item.size, item.size);
+              ctx.closePath();
+              ctx.fill();
+              ctx.restore();
+            });
+          },
+        },
+        {
+          init: () => ({ time: 0 }),
+          draw: (state) => {
+            ctx.clearRect(0, 0, width, height);
+            ctx.strokeStyle = selectedPair.accent;
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.2;
+            state.time += 0.02;
+
+            for (let i = 0; i < 8; i++) {
+              ctx.beginPath();
+              const yOffset = (height / 8) * i + 50;
+              for (let x = 0; x <= width; x += 5) {
+                const y = yOffset + Math.sin(x * 0.01 + state.time + i * 0.5) * 30;
+                if (x === 0) {
+                  ctx.moveTo(x, y);
+                } else {
+                  ctx.lineTo(x, y);
+                }
+              }
+              ctx.stroke();
+            }
+          },
+        },
+      ];
+
+      const selectedPattern = patterns[Math.floor(Math.random() * patterns.length)];
+      const patternState = selectedPattern.init();
+
+      function animate() {
+        selectedPattern.draw(patternState);
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      /* ========================================
+         SCROLL REVEAL
+         ======================================== */
+      function reveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add("active");
+
+            element
+              .querySelectorAll(".skill-progress:not(.animated)")
+              .forEach((bar) => {
+                const targetWidth = bar.getAttribute("data-width");
+                bar.style.width = targetWidth + "%";
+                bar.classList.add("animated");
+              });
+          }
+        });
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
+
+      /* ========================================
+         COUNTER ANIMATION
+         ======================================== */
+      function animateCounters() {
+        const counters = document.querySelectorAll("[data-count]");
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const updateCounter = () => {
+            current += step;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+              updateCounter();
+              observer.disconnect();
+            }
+          });
+          observer.observe(counter);
+        });
+      }
+      animateCounters();
+
+      /* ========================================
+         MOBILE MENU
+         ======================================== */
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let menuOpen = false;
+
+      menuBtn.addEventListener("click", () => {
+        menuOpen = !menuOpen;
+        menuBtn.setAttribute("aria-expanded", menuOpen);
+        if (menuOpen) {
+          mobileMenu.classList.remove("hidden");
+          mobileMenu.classList.add("flex");
+        } else {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+        }
+      });
+
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+          menuOpen = false;
+          menuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      /* ========================================
+         SMOOTH SCROLL NAVIGATION
+         ======================================== */
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const target = document.querySelector(targetId);
+          if (target) {
+            const navHeight = 0;
+            const targetPosition =
+              target.getBoundingClientRect().top +
+              window.pageYOffset -
+              navHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      /* ========================================
+         CONTACT FORM SUBMISSION
+         ======================================== */
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const btn = document.getElementById("submitBtn");
+          const btnText = document.getElementById("btnText");
+          const btnIcon = document.getElementById("btnIcon");
+          const statusMsg = document.getElementById("statusMsg");
+
+          const name = this.querySelector('input[name="name"]').value;
+          const email = this.querySelector('input[name="email"]').value;
+          const message = this.querySelector('textarea[name="message"]').value;
+
+          btn.disabled = true;
+          btnText.textContent = "Sending...";
+          btnIcon.innerHTML = `
+            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          `;
+          statusMsg.innerText = "";
+
+          const text = `
+📩 **New Portfolio Contact**
+
+👤 **Name:** ${name}
+📧 **Email:** ${email}
+💬 **Message:**
+${message}
+
+🎨 **Theme Color:** ${randomColor.name}
+`;
+
+          try {
+            const response = await fetch(
+              "https://psdk-criticism.psdkiajhn.workers.dev",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: text }),
+              }
+            );
+            const data = await response.json();
+
+            if (response.ok) {
+              statusMsg.style.color = "#a6e3a1";
+              statusMsg.innerText = "✓ Message sent successfully!";
+              this.reset();
+
+              setTimeout(() => {
+                statusMsg.innerText = "";
+              }, 5000);
+            } else {
+              throw new Error("Server Error");
+            }
+          } catch (error) {
+            console.error(error);
+            statusMsg.style.color = "#f38ba8";
+            statusMsg.innerText = "✗ Failed to send message. Please try again.";
+          } finally {
+            btn.disabled = false;
+            btnText.textContent = "Send Message";
+            btnIcon.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+              </svg>
+            `;
+          }
+        });
+    </script>
+  </body>
+</html>
