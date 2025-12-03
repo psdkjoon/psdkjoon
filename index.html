@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -422,7 +422,9 @@
          CARDS
          ======================================== */
       .info-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .info-card:hover {
@@ -846,7 +848,9 @@
       <nav class="fixed top-0 left-0 right-0 z-50 glass-panel">
         <div class="container flex justify-between items-center py-4">
           <a href="#" class="text-2xl font-bold title-font">
-            <span class="accent-text">P</span>sdk<span class="accent-text">.</span>
+            <span class="accent-text">P</span>sdk<span class="accent-text"
+              >.</span
+            >
           </a>
           <div class="hidden md:flex gap-8">
             <a href="#home" class="nav-link">Home</a>
@@ -1287,9 +1291,15 @@
                   directly from the terminal with ease.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                  <span class="small-tag glass-panel-light accent-text">Bash</span>
-                  <span class="small-tag glass-panel-light accent-text">API</span>
-                  <span class="small-tag glass-panel-light accent-text">CLI</span>
+                  <span class="small-tag glass-panel-light accent-text"
+                    >Bash</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >API</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >CLI</span
+                  >
                 </div>
               </div>
             </div>
@@ -1311,9 +1321,15 @@
                   files without leaving your terminal.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                  <span class="small-tag glass-panel-light accent-text">Pure Bash</span>
-                  <span class="small-tag glass-panel-light accent-text">CLI</span>
-                  <span class="small-tag glass-panel-light accent-text">Audio</span>
+                  <span class="small-tag glass-panel-light accent-text"
+                    >Pure Bash</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >CLI</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >Audio</span
+                  >
                 </div>
               </div>
             </div>
@@ -1335,9 +1351,15 @@
                   them directly to a Telegram bot.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                  <span class="small-tag glass-panel-light accent-text">JavaScript</span>
-                  <span class="small-tag glass-panel-light accent-text">API</span>
-                  <span class="small-tag glass-panel-light accent-text">Telegram</span>
+                  <span class="small-tag glass-panel-light accent-text"
+                    >JavaScript</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >API</span
+                  >
+                  <span class="small-tag glass-panel-light accent-text"
+                    >Telegram</span
+                  >
                 </div>
               </div>
             </div>
@@ -1611,17 +1633,18 @@
                       class="btn btn-primary w-full justify-center"
                     >
                       <span id="btnText">Send Message</span>
-                      <svg
-                        id="btnIcon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                        />
-                      </svg>
+                      <span id="btnIconWrapper">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                          />
+                        </svg>
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -1667,9 +1690,16 @@
         { accent: "#cba6f7", primary: "#b4befe", name: "mauve-lavender" },
       ];
 
-      const selectedPair = colorPairs[Math.floor(Math.random() * colorPairs.length)];
-      document.documentElement.style.setProperty("--accent", selectedPair.accent);
-      document.documentElement.style.setProperty("--primary", selectedPair.primary);
+      const selectedPair =
+        colorPairs[Math.floor(Math.random() * colorPairs.length)];
+      document.documentElement.style.setProperty(
+        "--accent",
+        selectedPair.accent,
+      );
+      document.documentElement.style.setProperty(
+        "--primary",
+        selectedPair.primary,
+      );
 
       const randomColor = { name: selectedPair.name, hex: selectedPair.accent };
 
@@ -1812,7 +1842,8 @@
               ctx.beginPath();
               const yOffset = (height / 8) * i + 50;
               for (let x = 0; x <= width; x += 5) {
-                const y = yOffset + Math.sin(x * 0.01 + state.time + i * 0.5) * 30;
+                const y =
+                  yOffset + Math.sin(x * 0.01 + state.time + i * 0.5) * 30;
                 if (x === 0) {
                   ctx.moveTo(x, y);
                 } else {
@@ -1825,7 +1856,8 @@
         },
       ];
 
-      const selectedPattern = patterns[Math.floor(Math.random() * patterns.length)];
+      const selectedPattern =
+        patterns[Math.floor(Math.random() * patterns.length)];
       const patternState = selectedPattern.init();
 
       function animate() {
@@ -1946,6 +1978,9 @@
       /* ========================================
          CONTACT FORM SUBMISSION
          ======================================== */
+      /* ========================================
+   CONTACT FORM SUBMISSION
+   ======================================== */
       document
         .getElementById("contactForm")
         .addEventListener("submit", async function (e) {
@@ -1953,7 +1988,7 @@
 
           const btn = document.getElementById("submitBtn");
           const btnText = document.getElementById("btnText");
-          const btnIcon = document.getElementById("btnIcon");
+          const btnIconWrapper = document.getElementById("btnIconWrapper");
           const statusMsg = document.getElementById("statusMsg");
 
           const name = this.querySelector('input[name="name"]').value;
@@ -1962,12 +1997,12 @@
 
           btn.disabled = true;
           btnText.textContent = "Sending...";
-          btnIcon.innerHTML = `
-            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-          `;
+          btnIconWrapper.innerHTML = `
+      <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    `;
           statusMsg.innerText = "";
 
           const text = `
@@ -1988,7 +2023,7 @@ ${message}
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ text: text }),
-              }
+              },
             );
             const data = await response.json();
 
@@ -2010,11 +2045,11 @@ ${message}
           } finally {
             btn.disabled = false;
             btnText.textContent = "Send Message";
-            btnIcon.innerHTML = `
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
-              </svg>
-            `;
+            btnIconWrapper.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+        </svg>
+      `;
           }
         });
     </script>
