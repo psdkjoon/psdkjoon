@@ -30,7 +30,7 @@ Do what makes you happy!
 ```
 
 - 🔭 Building **CLI tools**, **Telegram bots**, and random cool stuff
-- 📊 Background in **Data Science**
+- 📊 Background in **Information Technology**
 - 💻 **5 years** of coding experience (self-taught!)
 - 🐧 Linux enthusiast & terminal lover
 - 🎉 Coding for fun, not for profit
@@ -73,7 +73,7 @@ _...and more projects on the way!_ 🛠️
 ## 🏷️ What I Do
 
 ```text
-🤖 Bot Maker    💻 CLI Lover    🤝 Team Player    📊 Data Science
+🤖 Bot Maker    💻 CLI Lover    🤝 Team Player    📊 Information Technology
 ```
 
 ---
