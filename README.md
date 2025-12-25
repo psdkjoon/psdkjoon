@@ -6,7 +6,7 @@
 
 _I'm not chasing clients or building startups. I just genuinely love coding and do what makes me happy._
 
-[![Telegram](https://img.shields.io/badge/Telegram-cba6f7?style=for-the-badge&logo=telegram&logoColor=1e1e2e)](https://t.me/psdkiajhn)
+[![Telegram](https://img.shields.io/badge/Telegram-cba6f7?style=for-the-badge&logo=telegram&logoColor=1e1e2e)](https://t.me/psdkjoon)
 [![Email](https://img.shields.io/badge/Email-cba6f7?style=for-the-badge&logo=gmail&logoColor=1e1e2e)](mailto:psdk@psdkjoon.ir)
 [![Portfolio](https://img.shields.io/badge/Portfolio-cba6f7?style=for-the-badge&logo=google-chrome&logoColor=1e1e2e)](https://psdkjoon.ir)
 
