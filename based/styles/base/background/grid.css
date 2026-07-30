@@ -1,0 +1,30 @@
+.site-backdrop--grid::before {
+  content: "";
+  position: absolute;
+  inset: -56px;
+  background-image:
+    linear-gradient(var(--surface1) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface1) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.18;
+  will-change: transform;
+}
+
+.site-backdrop--grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      color-mix(in srgb, var(--accent) 10%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(circle at 50% 40%, transparent 0%, var(--crust) 85%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-backdrop--grid::before {
+    animation: none;
+  }
+}

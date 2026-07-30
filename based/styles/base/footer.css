@@ -1,0 +1,109 @@
+footer.site-footer {
+  margin-top: var(--space-7);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--bg-mid) 70%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+}
+
+footer.site-footer {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(28px);
+  filter: blur(6px);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease),
+    filter var(--dur-slow) var(--ease),
+    visibility 0s linear var(--dur-slow);
+}
+
+footer.site-footer.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  filter: blur(0);
+  pointer-events: auto;
+  transition:
+    opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease),
+    filter var(--dur-slow) var(--ease),
+    visibility 0s linear 0s;
+}
+
+footer.site-footer.is-static {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer.site-footer {
+    transform: none;
+    filter: none;
+    transition:
+      opacity var(--dur-fast) linear,
+      visibility 0s linear var(--dur-fast);
+  }
+  footer.site-footer.is-visible {
+    transition: opacity var(--dur-fast) linear;
+  }
+}
+
+.copyright {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-family: var(--font-english);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.footer-prompt {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+  font-size: 0.8em;
+}
+
+@media (max-width: 480px) {
+  .copyright {
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+    padding: 0 var(--space-3, 16px);
+  }
+}
+
+footer.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all var(--dur-med, 0.3s) var(--ease, ease);
+  font-weight: 600;
+  position: relative;
+}
+
+footer.site-footer a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--dur-med, 0.3s) var(--ease, ease);
+}
+
+footer.site-footer a:hover::after {
+  width: 100%;
+}
+
+footer.site-footer a:hover {
+  color: var(--pink);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
+}

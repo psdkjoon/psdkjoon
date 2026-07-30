@@ -1,0 +1,8 @@
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(160deg, var(--crust) 0%, var(--mantle) 55%, var(--base) 100%);
+}

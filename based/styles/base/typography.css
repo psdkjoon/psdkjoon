@@ -1,0 +1,52 @@
+body {
+  color: var(--text);
+  font-family: var(--font-english), var(--font-default);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+[lang="fa"],
+.fa {
+  font-family: var(--font-persian);
+  direction: rtl;
+  text-align: right;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-english);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  color: var(--text);
+}

@@ -1,0 +1,100 @@
+.settings-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--dur-med) var(--ease);
+}
+
+.settings-btn:hover {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border-color: var(--accent);
+  transform: rotate(45deg);
+}
+
+.settings-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  color: var(--text-muted);
+  transition: color var(--dur-med) var(--ease);
+}
+
+.settings-btn:hover svg {
+  color: var(--text);
+}
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 380px;
+  max-width: 90vw;
+  height: 100vh;
+  background: var(--bg-mid);
+  color: var(--text);
+  border-left: 2px solid var(--border);
+  z-index: 200;
+  transition: right var(--dur-slow) var(--ease);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--space-5);
+}
+
+.settings-panel.open {
+  right: 0;
+}
+
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--bg-deep) 50%, transparent);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--dur-med) var(--ease);
+}
+
+.settings-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--surface);
+}
+
+.settings-title {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.settings-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1);
+  color: var(--text-muted);
+}
+
+.settings-close:hover {
+  color: var(--text);
+}

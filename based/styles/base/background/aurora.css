@@ -1,0 +1,28 @@
+.site-backdrop--aurora .bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  transform: translate(-50%, -50%);
+  animation: bgOrbDrift var(--dur, 40s) ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes bgOrbDrift {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(var(--dx, 40px), var(--dy, -30px)) scale(1.08);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(calc(var(--dx, 40px) * -1), calc(var(--dy, -30px) * 0.6)) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-backdrop--aurora .bg-orb {
+    animation: none;
+  }
+}

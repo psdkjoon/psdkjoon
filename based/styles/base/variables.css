@@ -1,0 +1,78 @@
+:root {
+  /* Palette: Catppuccin Mocha */
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  /* Semantic aliases */
+  --bg-deep: var(--crust);
+  --bg-mid: var(--mantle);
+  --bg-base: var(--base);
+  --surface: var(--surface0);
+  --surface-hover: var(--surface1);
+  --text-muted: var(--subtext0);
+  --text-faint: var(--overlay0);
+  --accent: var(--mauve);
+  --accent-hover: var(--lavender);
+  --danger: var(--red);
+  --success: var(--green);
+  --warning: var(--yellow);
+  --border: var(--surface1);
+
+  /* Typography */
+  --font-english: "EB Garamond", serif;
+  --font-mono: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  --font-persian: "IRAN Rounded", "Vazirmatn", "IRANSansX", sans-serif;
+  --font-default: system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  /* Shape and depth */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 50px;
+  --shadow-md: 0 5px 30px color-mix(in srgb, var(--bg-deep) 10%, transparent);
+  --shadow-glow: 0 0 25px color-mix(in srgb, var(--accent) 15%, transparent);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-med: 300ms;
+  --dur-slow: 400ms;
+
+  /* Layout */
+  --footer-height: 64px;
+  --content-width: 1100px;
+}
